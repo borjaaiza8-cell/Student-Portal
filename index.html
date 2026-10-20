@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to my personal portfolio.">
+  <title>My Creative Portfolio</title>
+
+  <style>
+    :root {
+      --purple: #7545e8;
+      --pink: #ff5ca8;
+      --yellow: #ffcf5a;
+      --ink: #20203a;
+      --muted: #66677c;
+      --paper: #fffaff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: var(--purple);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--pink);
+    }
+
+    .hero {
+      padding: 85px 0 95px;
+      background:
+        radial-gradient(circle at 85% 20%,
+          #ffdfed 0, transparent 28%),
+        radial-gradient(circle at 10% 80%,
+          #e7dcff 0, transparent 32%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #eee7ff;
+      color: var(--purple);
+      padding: 8px 15px;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 4.7rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--purple);
+      color: white;
+      padding: 13px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      margin: 5px 8px 5px 0;
+      transition: transform 0.2s;
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+    }
+
+    .button-outline {
+      background: white;
+      color: var(--purple);
+      border: 2px solid #ded3ff;
+    }
+
+    .art-card {
+      min-height: 300px;
+      border-radius: 35px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(140deg, #8057ee, #ff6da9);
+      box-shadow: 0 22px 50px #7545e833;
+      color: white;
+      transform: rotate(2deg);
+    }
+
+    .art-card .emoji {
+      font-size: 5rem;
+      margin-bottom: 12px;
+    }
+
+    .art-card h2 {
+      font-size: 1.8rem;
+    }
+
+    section {
+      padding: 75px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      margin-bottom: 12px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 30px;
+      max-width: 650px;
+    }
+
+    .about-card {
+      padding: 30px;
+      background: white;
+      border: 1px solid #eee8ff;
+      border-radius: 22px;
+      box-shadow: 0 12px 35px #2c1a5510;
+    }
+
+    .skills-grid,
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .skill-card,
+    .project-card {
+      padding: 25px;
+      background: white;
+      border: 1px solid #eee8ff;
+      border-radius: 20px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .skill-card:hover,
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px #7545e81a;
+    }
+
+    .skill-card .emoji,
+    .project-card .emoji {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .skill-card h3,
+    .project-card h3 {
+      margin-bottom: 8px;
+    }
+
+    .skill-card p,
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-box {
+      background: linear-gradient(120deg, #eee7ff, #ffe5f0);
+      border-radius: 28px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin: 12px 0 20px;
+    }
+
+    footer {
+      padding: 25px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .art-card {
+        min-height: 240px;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="container">
+    <nav>
+      <a class="logo" href="#home">MyPortfolio ✦</a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="tag">HELLO, WORLD! ✨</span>
+
+          <h1>
+            I'm <span class="gradient-text">Your Name</span>.<br>
+            Welcome to my world!
+          </h1>
+
+          <p>
+            I'm a motivated and creative individual who loves learning
+            new skills, solving problems, and turning ideas into reality.
+            Explore my portfolio and get to know my work.
+          </p>
+
+          <a class="button" href="#projects">Explore My Work ↗</a>
+          <a class="button button-outline" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="art-card">
+          <div class="emoji">🚀</div>
+          <h2>Dream. Learn. Create.</h2>
+          <p>Every great journey starts with one small step.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-heading">A Little About Me 💜</h2>
+        <p class="section-intro">
+          Here's a quick introduction to who I am and what I enjoy doing.
+        </p>
+
+        <div class="about-card">
+          <p>
+            Hello! I'm <strong>Your Name</strong>. I'm passionate about
+            personal growth, technology, and continuous learning.
+            I enjoy developing my skills and working on projects that
+            help me gain real-world experience.
+          </p>
+          <br>
+          <p>
+            My goal is to keep improving, learn from every opportunity,
+            and make a positive contribution through my work.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-heading">My Skills 🎨</h2>
+        <p class="section-intro">
+          These are examples. Replace them with skills you actually have.
+        </p>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="emoji">💻</div>
+            <h3>Computer Skills</h3>
+            <p>Basic computer operations, file management, and online tools.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="emoji">📊</div>
+            <h3>Data &amp; Reporting</h3>
+            <p>Organizing information, spreadsheets, and basic reporting.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="emoji">🌱</div>
+            <h3>Continuous Learning</h3>
+            <p>Adaptability, problem-solving, and learning new technologies.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-heading">My Projects ✨</h2>
+        <p class="section-intro">
+          Showcase your school projects, practice work, or personal creations.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="emoji">🌐</div>
+            <h3>Personal Website</h3>
+            <p>A portfolio website built using HTML and CSS.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="emoji">📈</div>
+            <h3>Data Dashboard</h3>
+            <p>A sample report showing how data can tell a story.</p>
+          </article>
+
+          <article class="project-card">
+            <div class="emoji">📝</div>
+            <h3>My Next Project</h3>
+            <p>Add a short description of another project you complete.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <h2 class="section-heading">Let's Connect! 💌</h2>
+          <p>
+            Have an opportunity or want to work together?
+            I'd love to hear from you.
+          </p>
+
+          <!-- Replace this example address with your own email. -->
+          <a class="button" href="mailto:your.email@example.com">
+            Email Me ✉
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Your Name. Made with 💜 and creativity.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
